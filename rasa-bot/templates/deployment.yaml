@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rasa-bot.fullname" . }}
+  labels:
+    {{- include "rasa-bot.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "rasa-bot.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "rasa-bot.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: rasa
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - containerPort: 5005
+              name: rasa-api
+          livenessProbe:
+            httpGet:
+              path: /
+              port: rasa-api
+          readinessProbe:
+            httpGet:
+              path: /
+              port: rasa-api
+          resources:
+            limits:
+              cpu: "2"
+              memory: 6Gi
+            requests:
+              cpu: "0"
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /app/endpoints.yml
+              name: configmap
+              subPath: endpoints.yml
+          command:
+            - rasa
+            - run
+            - --enable-api
+            - --credentials
+            - credentials.yml
+            - --endpoints
+            - endpoints.yml
+
+        - name: actions
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          resources:
+            limits:
+              cpu: "2"
+            requests:
+              cpu: "0"
+          volumeMounts:
+            - mountPath: /app/endpoints.yml
+              name: configmap
+              subPath: endpoints.yml
+          command:
+            - rasa
+            - run
+            - actions
+
+        - name: duckling
+          image: rasa/duckling:0.1.6.2
+          command: ['stack', 'exec', 'duckling-example-exe', '--', '-p', '8005']
+          resources:
+            limits:
+              cpu: "2"
+            requests:
+              cpu: "0"
+          ports:
+            - containerPort: 8005
+              name: duckling
+
+        - name: static-files
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "0.5"
+          ports:
+            - containerPort: 8000
+              name: static
+          command: ['python', '-m', 'http.server', '8000', '--directory', '.']
+        
+      volumes:
+        - name: configmap
+          configMap:
+            name: {{ include "rasa-bot.fullname" . }}
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

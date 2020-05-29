@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "rasa-bot.fullname" . }}
+  labels:
+    {{- include "rasa-bot.labels" . | nindent 4 }}
+  annotations:
+    networking.gke.io/managed-certificates: {{ include "rasa-bot.fullname" . }}
+spec:
+  rules:
+  - host: {{ .Values.ingress.hostname }}
+    http:
+      paths:
+        - path: /web/
+          backend:
+            serviceName: {{ include "rasa-bot.fullname" . }}
+            servicePort: static
+        - backend:
+            serviceName: {{ include "rasa-bot.fullname" . }}
+            servicePort: rasa-api
