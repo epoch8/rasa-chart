@@ -1,3 +1,3 @@
 build:
-	cd repo && helm package ../rasa-bot
-	helm repo index repo
+	cd docs/ && helm package ../rasa-bot
+	helm repo index docs/
