@@ -9,6 +9,7 @@ spec:
   selector:
     matchLabels:
       {{- include "rasa-bot.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: rasa
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -17,6 +18,7 @@ spec:
     {{- end }}
       labels:
         {{- include "rasa-bot.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: rasa
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -84,17 +86,6 @@ spec:
             - containerPort: 8005
               name: duckling
 
-        - name: static-files
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          resources:
-            limits:
-              memory: "50Mi"
-              cpu: "0.5"
-          ports:
-            - containerPort: 8000
-              name: static
-          command: ['python', '-m', 'http.server', '8000', '--directory', '.']
-        
       volumes:
         - name: configmap
           configMap:

@@ -7,7 +7,7 @@ metadata:
   annotations:
     beta.cloud.google.com/backend-config: >-
       {"ports": {"rasa-api": "{{ include "rasa-bot.fullname" . }}", "duckling-extractor":
-      "{{ include "rasa-bot.fullname" . }}", "static": "{{ include "rasa-bot.fullname" . }}"}}
+      "{{ include "rasa-bot.fullname" . }}"}}
 
 spec:
   type: NodePort
@@ -16,9 +16,6 @@ spec:
       port: 80
       targetPort: rasa-api
       protocol: TCP
-    - name: static
-      port: 8000
-      targetPort: static
-      protocol: TCP
   selector:
     {{- include "rasa-bot.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: rasa

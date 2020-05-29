@@ -13,8 +13,8 @@ spec:
       paths:
         - path: /web/
           backend:
-            serviceName: {{ include "rasa-bot.fullname" . }}
-            servicePort: static
+            serviceName: {{ .Release.Name }}-be
+            servicePort: http
         - backend:
             serviceName: {{ include "rasa-bot.fullname" . }}
             servicePort: rasa-api

@@ -4,7 +4,4 @@ metadata:
   name:  {{ include "rasa-bot.fullname" . }}
 data:
   endpoints.yml: |
-    action_endpoint:
-      url: "http://localhost:5055/webhook"
-    
 {{ .Values.endpoints | toYaml | indent 4 }}
