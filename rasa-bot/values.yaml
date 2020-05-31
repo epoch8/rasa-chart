@@ -2,25 +2,31 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# rasa endpoints.yml
-endpoints:
-  action_endpoint:
-    url: "http://localhost:5055/webhook"
-  # tracker_store:
-  #   type: SQL
-  #   dialect: "postgresql"
-  #   url: "1.1.1.1"
-  #   username: username
-  #   password: password
-  #   db: db
+rasa:
+  image:
+    repository: rasa
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart version.
+    tag: ""
+
+  # rasa endpoints.yml
+  endpoints:
+    action_endpoint:
+      url: "http://localhost:5055/webhook"
+    # tracker_store:
+    #   type: SQL
+    #   dialect: "postgresql"
+    #   url: "1.1.1.1"
+    #   username: username
+    #   password: password
+    #   db: db
+
+backend:
+  image:
+    repository: backend
+    tag: ""
 
 replicaCount: 1
-
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart version.
-  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

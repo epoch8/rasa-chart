@@ -4,4 +4,6 @@ metadata:
   name:  {{ include "rasa-bot.fullname" . }}
 data:
   endpoints.yml: |
-{{ .Values.endpoints | toYaml | indent 4 }}
+{{- with .Values.rasa.endpoints }}
+  {{- toYaml . | nindent 4 }}
+{{- end }}
