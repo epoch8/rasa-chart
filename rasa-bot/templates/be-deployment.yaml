@@ -34,7 +34,10 @@ spec:
           ports:
             - containerPort: 8000
               name: http
-          command: ['python', '-m', 'http.server', '8000', '--directory', '.']
+          {{- with .Values.backend.command }}
+          command:
+            {{- toYaml .| nindent 12}}
+          {{- end }}
         
       volumes:
         - name: configmap

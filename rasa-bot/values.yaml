@@ -25,6 +25,7 @@ backend:
   image:
     repository: backend
     tag: ""
+  command: ['python', '-m', 'http.server', '8000', '--directory', '.']
 
 replicaCount: 1
 
