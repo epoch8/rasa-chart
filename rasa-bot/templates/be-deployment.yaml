@@ -36,7 +36,11 @@ spec:
               name: http
           {{- with .Values.backend.command }}
           command:
-            {{- toYaml .| nindent 12}}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
           {{- end }}
         
       volumes:

@@ -57,6 +57,10 @@ spec:
             - credentials.yml
             - --endpoints
             - endpoints.yml
+          {{- with .Values.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
 
         - name: actions
           image: "{{ .Values.rasa.image.repository }}:{{ .Values.rasa.image.tag | default .Chart.AppVersion }}"
@@ -73,6 +77,10 @@ spec:
             - rasa
             - run
             - actions
+          {{- with .Values.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
 
         - name: duckling
           image: rasa/duckling:0.1.6.2
