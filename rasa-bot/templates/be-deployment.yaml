@@ -27,10 +27,10 @@ spec:
       containers:
         - name: backend
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag | default .Chart.AppVersion }}"
+          {{- with .Values.backend.resources }}
           resources:
-            limits:
-              memory: "50Mi"
-              cpu: "0.5"
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           ports:
             - containerPort: 8000
               name: http

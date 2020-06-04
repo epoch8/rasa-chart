@@ -26,6 +26,10 @@ backend:
     repository: backend
     tag: ""
   command: ['python', '-m', 'http.server', '8000', '--directory', '.']
+  resources:
+    limits:
+      memory: "50Mi"
+      cpu: "0.5"
 
 replicaCount: 1
 
