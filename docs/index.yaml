@@ -3,7 +3,17 @@ entries:
   rasa-bot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.984981+03:00"
+    created: "2020-06-10T23:05:09.154312+03:00"
+    description: A Helm chart for Kubernetes
+    digest: 36d8c5242bb4d72c8bc4d21f474b15c1c61e9cdafd853d07032a37828e103994
+    name: rasa-bot
+    type: application
+    urls:
+    - rasa-bot-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-06-10T23:05:09.153727+03:00"
     description: A Helm chart for Kubernetes
     digest: cc0913c21bedf7749f8ba40d2488c5b91ecc29c6374db5ef9db8fc0e2c9895d3
     name: rasa-bot
@@ -13,7 +23,7 @@ entries:
     version: 0.4.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.984389+03:00"
+    created: "2020-06-10T23:05:09.152656+03:00"
     description: A Helm chart for Kubernetes
     digest: 4f69be542e0656cc789bfe30ae862e4c36eb5534a7ca739fb49d2b85f235892f
     name: rasa-bot
@@ -23,7 +33,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.983304+03:00"
+    created: "2020-06-10T23:05:09.151577+03:00"
     description: A Helm chart for Kubernetes
     digest: 565f0ae6b6a619fead7e8cdd180d629dacff2d0db202768eaa8e4618eba01f49
     name: rasa-bot
@@ -33,7 +43,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.982166+03:00"
+    created: "2020-06-10T23:05:09.150504+03:00"
     description: A Helm chart for Kubernetes
     digest: b43877f5186a9eea74ed333e3f010f3ffc9833002c55568faf3496d03b8c0b1b
     name: rasa-bot
@@ -43,7 +53,7 @@ entries:
     version: 0.3.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.980486+03:00"
+    created: "2020-06-10T23:05:09.149389+03:00"
     description: A Helm chart for Kubernetes
     digest: 1194d7e1a91dc078f183af67e0e64bbfa3504af81989a88cf677a5c8a979eebb
     name: rasa-bot
@@ -53,7 +63,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.979428+03:00"
+    created: "2020-06-10T23:05:09.148323+03:00"
     description: A Helm chart for Kubernetes
     digest: b74c2865d0a64998e45700322c67d74926c80f9687a548e8311cbbf4098059a8
     name: rasa-bot
@@ -63,7 +73,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.978399+03:00"
+    created: "2020-06-10T23:05:09.145828+03:00"
     description: A Helm chart for Kubernetes
     digest: 3207801ba90393f8f67b4606a4ecc576cc04057b3301b4c61c885ef65039b0f9
     name: rasa-bot
@@ -73,7 +83,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.977474+03:00"
+    created: "2020-06-10T23:05:09.143213+03:00"
     description: A Helm chart for Kubernetes
     digest: 659b1b2ff409c9b6497d7af60ba4522d4366d835baeaea2514d2e283ce927cf0
     name: rasa-bot
@@ -83,7 +93,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-10T13:10:27.976059+03:00"
+    created: "2020-06-10T23:05:09.14212+03:00"
     description: A Helm chart for Kubernetes
     digest: 6c0d5e06fe0811668f419b8ab6b95acf34b3cfa4ec09c501801f4142c560386c
     name: rasa-bot
@@ -91,4 +101,4 @@ entries:
     urls:
     - rasa-bot-0.1.0.tgz
     version: 0.1.0
-generated: "2020-06-10T13:10:27.972248+03:00"
+generated: "2020-06-10T23:05:09.13678+03:00"
