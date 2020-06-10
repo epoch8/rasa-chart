@@ -21,6 +21,23 @@ rasa:
     #   password: password
     #   db: db
 
+  credentials:
+    rest: {}
+
+    rasa:
+      url: "http://localhost:5002/api"
+
+    # actions.connectors.telegram.TelegramInput:
+    #   access_token: "XXX"
+    #   verify: "XXX"
+    #   webhook_url: "XXX"
+
+    socketio:
+      user_message_evt: user_uttered
+      bot_message_evt: bot_uttered
+      session_persistence: true
+
+
 backend:
   image:
     repository: backend

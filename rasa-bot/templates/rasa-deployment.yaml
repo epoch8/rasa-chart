@@ -49,6 +49,9 @@ spec:
             - mountPath: /app/endpoints.yml
               name: configmap
               subPath: endpoints.yml
+            - mountPath: /app/credentials.yml
+              name: configmap
+              subPath: credentials.yml
           command:
             - rasa
             - run
