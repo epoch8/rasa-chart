@@ -2,6 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# Public URL where bot and backend are hosted
+baseurl: http://localhost/
+
+telegram: {}
+  # access_token: XXX
+  # bot_name: XXX
+
 rasa:
   image:
     repository: rasa

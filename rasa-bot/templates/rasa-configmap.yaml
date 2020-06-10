@@ -11,3 +11,9 @@ data:
 {{- with .Values.rasa.credentials }}
   {{- toYaml . | nindent 4 }}
 {{- end }}
+{{- if .Values.telegram }}
+    actions.connectors.telegram.TelegramInput:
+      access_token: {{ .Values.telegram.access_token }}
+      verify: {{ .Values.telegram.bot_name }}
+      webhook_url: "{{ .Values.baseurl }}webhooks/telegram/webhook"
+{{- end}}
