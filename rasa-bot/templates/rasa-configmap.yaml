@@ -7,6 +7,15 @@ data:
 {{- with .Values.rasa.endpoints }}
   {{- toYaml . | nindent 4 }}
 {{- end }}
+{{- if .Values.rasa.tracker_store_in_db }}{{- with .Values.database }}
+    tracker_store:
+      type: SQL
+      dialect: "postgresql"
+      url: "{{ .host }}:{{ .port }}"
+      username: "{{ .user }}"
+      password: "{{ .password }}"
+      db: "{{ .host }}"
+{{- end }}{{- end }}
   credentials.yml: |
 {{- with .Values.rasa.credentials }}
   {{- toYaml . | nindent 4 }}

@@ -9,6 +9,13 @@ telegram: {}
   # access_token: XXX
   # bot_name: XXX
 
+database:
+  name: db_name
+  user: db_user
+  password: db_pass
+  host: db_host
+  port: 5432
+
 rasa:
   image:
     repository: rasa
@@ -16,17 +23,12 @@ rasa:
     # Overrides the image tag whose default is the chart version.
     tag: ""
 
+  tracker_store_in_db: False
+
   # rasa endpoints.yml
   endpoints:
     action_endpoint:
       url: "http://localhost:5055/webhook"
-    # tracker_store:
-    #   type: SQL
-    #   dialect: "postgresql"
-    #   url: "1.1.1.1"
-    #   username: username
-    #   password: password
-    #   db: db
 
   credentials:
     rest: {}
