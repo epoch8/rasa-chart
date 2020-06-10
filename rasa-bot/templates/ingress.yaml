@@ -19,6 +19,10 @@ spec:
           backend:
             serviceName: {{ .Release.Name }}-be
             servicePort: http
+        - path: /static/*
+          backend:
+            serviceName: {{ .Release.Name }}-be
+            servicePort: http
         - backend:
             serviceName: {{ include "rasa-bot.fullname" . }}
             servicePort: rasa-api
