@@ -11,11 +11,11 @@ spec:
   - host: {{ .Values.ingress.hostname }}
     http:
       paths:
-        - path: /web/
+        - path: /web/*
           backend:
             serviceName: {{ .Release.Name }}-be
             servicePort: http
-        - path: /admin/
+        - path: /admin/*
           backend:
             serviceName: {{ .Release.Name }}-be
             servicePort: http
