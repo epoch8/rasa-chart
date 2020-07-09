@@ -17,11 +17,11 @@ spec:
   - host: {{ .Values.ingress.hostname }}
     http:
       paths:
-        - path: /socket.io/*
+        - path: /socket.io/
           backend:
             serviceName: {{ include "rasa-bot.fullname" . }}
             servicePort: rasa-api
-        - path: /webhooks/*
+        - path: /webhooks/
           backend:
             serviceName: {{ include "rasa-bot.fullname" . }}
             servicePort: rasa-api
