@@ -17,6 +17,7 @@ data:
       db: "{{ .name }}"
 {{- end }}{{- end }}
   credentials.yml: |
+    rest: {}
 {{- with .Values.rasa.credentials }}
   {{- toYaml . | nindent 4 }}
 {{- end }}
