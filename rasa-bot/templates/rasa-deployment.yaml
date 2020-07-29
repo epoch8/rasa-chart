@@ -64,10 +64,20 @@ spec:
             - credentials.yml
             - --endpoints
             - endpoints.yml
-          {{- with .Values.env }}
+            {{- if .Values.rasa.models_in_gcs }}
+            - --remote-storage
+            - gcs
+            {{- end }}
           env:
+          {{- with .Values.env }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if .Values.rasa.models_in_gcs }}
+            - name: BUCKET_NAME
+              value: {{ .Release.Name }}-models
+          {{- end }}
+            - name: DUMMY_VALUE_SO_ENV_IS_NOT_EMPTY
+              value: value
 
         - name: actions
           image: "{{ .Values.rasa.image.repository }}:{{ .Values.rasa.image.tag | default .Chart.AppVersion }}"

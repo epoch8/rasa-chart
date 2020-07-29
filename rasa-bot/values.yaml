@@ -25,6 +25,8 @@ rasa:
 
   tracker_store_in_db: False
 
+  models_in_gcs: False
+
   # rasa endpoints.yml
   endpoints:
     action_endpoint:

@@ -1,3 +1,7 @@
+# 1.2.0
+
+.Values.rasa.models_in_gcs - True if models should be stored in gs://{release}-models
+
 # 0.3.0
 
 .Values.endpoints -> .Values.rasa.endpoints
