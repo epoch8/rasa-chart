@@ -27,6 +27,15 @@ rasa:
 
   models_in_gcs: False
 
+  core:
+    resources:
+      limits:
+        cpu: "2"
+        memory: 2Gi
+      requests:
+        cpu: "0"
+        memory: 1Gi
+
   # rasa endpoints.yml
   endpoints:
     action_endpoint:

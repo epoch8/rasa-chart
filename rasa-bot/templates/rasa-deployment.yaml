@@ -42,13 +42,10 @@ spec:
             httpGet:
               path: /
               port: rasa-api
+          {{- with .Values.rasa.core.resources }}
           resources:
-            limits:
-              cpu: "2"
-              memory: 8Gi
-            requests:
-              cpu: "0"
-              memory: 4Gi
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - mountPath: /app/endpoints.yml
               name: configmap
