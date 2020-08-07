@@ -42,8 +42,6 @@ rasa:
       url: "http://localhost:5055/webhook"
 
   credentials:
-    rest: {}
-
     rasa:
       url: "http://localhost:5002/api"
 
