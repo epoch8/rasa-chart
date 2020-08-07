@@ -12,10 +12,11 @@ spec:
       app.kubernetes.io/component: rasa
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+        {{- with .Values.podAnnotations }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        checksum/config: {{ include (print $.Template.BasePath "/rasa-configmap.yaml") . | sha256sum }}
       labels:
         {{- include "rasa-bot.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/component: rasa
