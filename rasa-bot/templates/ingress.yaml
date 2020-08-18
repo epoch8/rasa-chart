@@ -25,6 +25,10 @@ spec:
           backend:
             serviceName: {{ include "rasa-bot.fullname" . }}
             servicePort: rasa-api
+        - path: /model/
+          backend:
+            serviceName: {{ include "rasa-bot.fullname" . }}
+            servicePort: rasa-api
         - backend:
             serviceName: {{ .Release.Name }}-be
             servicePort: http
