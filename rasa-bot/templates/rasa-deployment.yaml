@@ -66,6 +66,9 @@ spec:
             - --remote-storage
             - gcs
             {{- end }}
+            {{- if .Values.rasa.debug }}
+            - --debug
+            {{- end }}
           env:
           {{- with .Values.env }}
             {{- toYaml . | nindent 12 }}
@@ -92,6 +95,9 @@ spec:
             - rasa
             - run
             - actions
+            {{- if .Values.rasa.debug }}
+            - --debug
+            {{- end }}
           {{- with .Values.env }}
           env:
             {{- toYaml . | nindent 12 }}

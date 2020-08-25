@@ -27,6 +27,8 @@ rasa:
 
   models_in_gcs: False
 
+  debug: False
+
   core:
     resources:
       limits:
