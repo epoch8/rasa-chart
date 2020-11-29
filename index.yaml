@@ -3,6 +3,16 @@ entries:
   rasa-bot:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2020-11-29T20:22:15.408192358Z"
+    description: A Helm chart for Kubernetes
+    digest: e837363deee3f5c9ff9f6297b7e75c6de78cd23cea0a2dccd70753d216165efb
+    name: rasa-bot
+    type: application
+    urls:
+    - https://github.com/epoch8/rasa-chart/releases/download/rasa-bot-1.4.3/rasa-bot-1.4.3.tgz
+    version: 1.4.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2020-11-29T17:35:03.578336027Z"
     description: A Helm chart for Kubernetes
     digest: afda56c08cac29861e7bd8e465a7325909c65dde57fc998c97cb88353d7ef8f9
