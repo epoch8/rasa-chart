@@ -1,0 +1,1 @@
+# Helm chart for E8 supported Rasa bots
