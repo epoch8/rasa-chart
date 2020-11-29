@@ -59,9 +59,9 @@ spec:
             - run
             - --enable-api
             - --credentials
-            - credentials.yml
+            - /app/credentials.yml
             - --endpoints
-            - endpoints.yml
+            - /app/endpoints.yml
             {{- if .Values.rasa.models_in_gcs }}
             - --remote-storage
             - gcs
